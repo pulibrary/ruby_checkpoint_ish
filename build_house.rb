@@ -22,4 +22,22 @@ class Jack
 
         rhyme_rand
     end
+
+    # Generates a semi-random version of the nursery rhyme that always ends 
+    # with “the house that Jack built.”
+    def semi_random
+        characters = ["the malt that lay in", "the rat that ate", "the cat that killed", "the dog that worried", "the cow with the crumpled horn that tossed", "the maiden all forlorn that milked", "the man all tattered and torn that kissed", "the priest all shaven and shorn that married", "the rooster that crowed in the morn that woke", "the farmer sowing his corn that kept", "the horse and the hound and the horn that belonged to"]
+
+        order = characters.shuffle
+        begin_sent = "This is "
+        line = "the house that Jack built.\n"
+        semi_rand = begin_sent + line
+
+        while !order.empty? 
+            line = order.pop + " " + line
+            semi_rand += begin_sent + line
+        end
+
+        semi_rand
+    end
 end
